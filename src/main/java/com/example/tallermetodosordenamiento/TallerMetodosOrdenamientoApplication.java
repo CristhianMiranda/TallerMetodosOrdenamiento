@@ -41,6 +41,42 @@ public class TallerMetodosOrdenamientoApplication  {
         endTime = System.nanoTime();
         System.out.println("Tiempo de respuesta en nanosegundos: "+(endTime - startTime)+"");
 
+        startTime = System.nanoTime();
+        Ordenamiento.Seleccion(arregloA);
+        endTime = System.nanoTime();
+        System.out.println("Tiempo de respuesta en nanosegundos: "+(endTime - startTime)+"");
+
+        startTime = System.nanoTime();
+        Ordenamiento.Insercion(arregloA);
+        endTime = System.nanoTime();
+        System.out.println("Tiempo de respuesta en nanosegundos: "+(endTime - startTime)+"");
+
+        startTime = System.nanoTime();
+        Ordenamiento.InsercionRecursiva(arregloA);
+        endTime = System.nanoTime();
+        System.out.println("Tiempo de respuesta en nanosegundos: "+(endTime - startTime)+"");
+
+        startTime = System.nanoTime();
+        Ordenamiento.ShellSort(arregloA);
+        endTime = System.nanoTime();
+        System.out.println("Tiempo de respuesta en nanosegundos: "+(endTime - startTime)+"");
+
+        startTime = System.nanoTime();
+        Ordenamiento.BucketSort(arregloA);
+        endTime = System.nanoTime();
+        System.out.println("Tiempo de respuesta en nanosegundos: "+(endTime - startTime)+"");
+
+        startTime = System.nanoTime();
+        Ordenamiento.MergeSort(arregloA);
+        endTime = System.nanoTime();
+        System.out.println("Tiempo de respuesta en nanosegundos: "+(endTime - startTime)+"");
+
+        startTime = System.nanoTime();
+        Ordenamiento.QuickSort(arregloA);
+        endTime = System.nanoTime();
+        System.out.println("Tiempo de respuesta en nanosegundos: "+(endTime - startTime)+"");
+
+
 
     }
 
