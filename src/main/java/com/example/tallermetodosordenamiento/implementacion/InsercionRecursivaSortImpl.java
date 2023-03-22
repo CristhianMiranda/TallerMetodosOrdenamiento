@@ -5,6 +5,7 @@ import com.example.tallermetodosordenamiento.interfaces.InsercionRecursivaSort;
 public class InsercionRecursivaSortImpl implements InsercionRecursivaSort {
     @Override
     public void InsercionRecursiva(double[] arreglo) {
+
         recursiveInsertionSort(arreglo, arreglo.length);
     }
 
