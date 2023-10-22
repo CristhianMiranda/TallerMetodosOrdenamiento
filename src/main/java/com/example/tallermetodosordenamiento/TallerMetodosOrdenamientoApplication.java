@@ -6,65 +6,67 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Random;
 
+/**
+ * Esta aplicación realiza pruebas de rendimiento para varios algoritmos de ordenamiento
+ * utilizando arreglos de diferentes tamaños.
+ * Autor: Cristhian Andres Miranda Ramirez
+ */
 @SpringBootApplication
 public class TallerMetodosOrdenamientoApplication  {
 
+    /**
+     * Método principal que inicia la aplicación y realiza las pruebas de rendimiento.
+     */
     public static void main(String[] args) {
 
         calculoTiempoEjecucionMetodos();
 
     }
 
-
-
-
-
-
-
-
+    /**
+     * Realiza pruebas de rendimiento para diferentes algoritmos de ordenamiento
+     * con diferentes tamaños de arreglos.
+     */
     public static void calculoTiempoEjecucionMetodos(){
 
-
         int i=1;
-        int tamano = 200;
+        int tamano = 200000;
+
         while(i<=6) {
+
             // Tamaño del arreglo
-            int size = (200*i*10);
+            int size = (tamano*i);
 
             double[] arregloA = llenarArregloAleatorio(size);
 
             long startTime, endTime;
+
             System.out.println(i+" / "+ size);
-            startTime = System.nanoTime();
-            Ordenamiento.burbuja(arregloA);
-            endTime = System.nanoTime();
-            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (Burbuja)");
-
 
             startTime = System.nanoTime();
-            Ordenamiento.burbujaBidireccional(arregloA);
+            Ordenamiento.timSort(arregloA);
             endTime = System.nanoTime();
-            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (Burbuja Bidireccional)");
+            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (TimSort)");
 
             startTime = System.nanoTime();
-            Ordenamiento.seleccion(arregloA);
+            Ordenamiento.combSort(arregloA);
             endTime = System.nanoTime();
-            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (Seleccion)");
+            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (CombSort)");
 
             startTime = System.nanoTime();
-            Ordenamiento.insercion(arregloA);
+            Ordenamiento.selectionSort(arregloA);
             endTime = System.nanoTime();
-            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (Insercion)");
+            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (SelectionSort)");
 
             startTime = System.nanoTime();
-            Ordenamiento.insercionRecursiva(arregloA);
+            Ordenamiento.treeSort(arregloA);
             endTime = System.nanoTime();
-            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (Insercion Recursiva)");
+            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (TreeSort)");
 
             startTime = System.nanoTime();
-            Ordenamiento.shellSort(arregloA);
+            Ordenamiento.pigeonholeSort(arregloA);
             endTime = System.nanoTime();
-            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (SheelSort)");
+            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (PigeonholeSortSort)");
 
             startTime = System.nanoTime();
             Ordenamiento.bucketSort(arregloA);
@@ -72,19 +74,9 @@ public class TallerMetodosOrdenamientoApplication  {
             System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (BucketSort)");
 
             startTime = System.nanoTime();
-            Ordenamiento.mergeSort(arregloA);
-            endTime = System.nanoTime();
-            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (MergeSort)");
-
-            startTime = System.nanoTime();
             Ordenamiento.quickSort(arregloA);
             endTime = System.nanoTime();
             System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (QuickSort)");
-
-            startTime = System.nanoTime();
-            Ordenamiento.stoogeSort(arregloA);
-            endTime = System.nanoTime();
-            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (StoogeSort)");
 
             startTime = System.nanoTime();
             Ordenamiento.heapSort(arregloA);
@@ -96,7 +88,6 @@ public class TallerMetodosOrdenamientoApplication  {
             endTime = System.nanoTime();
             System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (BitonicSort)");
 
-
             startTime = System.nanoTime();
             Ordenamiento.gnomeSort(arregloA);
             endTime = System.nanoTime();
@@ -106,11 +97,6 @@ public class TallerMetodosOrdenamientoApplication  {
             Ordenamiento.binaryInsertionSort(arregloA);
             endTime = System.nanoTime();
             System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (BinaryInsertionSort)");
-/*->*/
-            startTime = System.nanoTime();
-            Ordenamiento.strandSort(arregloA);
-            endTime = System.nanoTime();
-            System.out.println("Tiempo de respuesta en nanosegundos: " + (endTime - startTime) + " (StrandSort)");
 
             startTime = System.nanoTime();
             Ordenamiento.radixSort(arregloA);
@@ -120,34 +106,6 @@ public class TallerMetodosOrdenamientoApplication  {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * Crea un arreglo unidimensional de tamaño n con valores aleatorios entre 1000 y 9000.
      *
@@ -155,23 +113,13 @@ public class TallerMetodosOrdenamientoApplication  {
      * @return el arreglo con valores aleatorios
      */
     public static double[] llenarArregloAleatorio(int n) {
-        // Crea un nuevo arreglo de tamaño n.
         double[] arreglo = new double[n];
-
-        // Crea un nuevo objeto Random para generar valores aleatorios.
         Random random = new Random();
 
-        // Asigna un valor aleatorio entre 1000 y 9000 a cada elemento del arreglo.
         for (int i = 0; i < n; i++) {
             arreglo[i] = random.nextDouble() * (9000 - 1000) + 1000;
         }
 
-        // Devuelve el arreglo con valores aleatorios.
         return arreglo;
     }
-
-
-
-
-
 }

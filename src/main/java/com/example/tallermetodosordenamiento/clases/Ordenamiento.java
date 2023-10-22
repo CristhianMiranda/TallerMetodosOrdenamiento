@@ -5,37 +5,35 @@ import com.example.tallermetodosordenamiento.interfaces.*;
 import com.example.tallermetodosordenamiento.interfaces.BinaryInsertionSort;
 
 public class Ordenamiento {
-    public static void burbuja(double[] arr) {
-        Burbuja burbuja = new BurbujaImpl();
-        burbuja.Burbuja(arr);
-    }
 
-    public static void burbujaBidireccional(double[] arr){
-        BurbujaBidireccional burbujaBidireccional = new BurbujaBidireccionalImpl();
-        burbujaBidireccional.BurbujaBidireccional(arr);
-    }
-
-    public static void seleccion(double[] arr)
+    public static void timSort(double[] arr)
     {
-        Seleccion seleccion = new SeleccionImpl();
-        seleccion.Seleccion(arr);
+        TimSort timSort = new TimSortImpl();
+        timSort.TimSort(arr);
     }
 
-    public static void insercion(double[] arr)
+    public static void combSort(double[] arr)
     {
-        Insercion insercion = new InsercionImpl();
-        insercion.Insercion(arr);
+        CombSort combSort = new CombSortImpl();
+        combSort.combSort(arr);
     }
 
-    public static void insercionRecursiva(double[] arr)
+    public static void selectionSort(double[] arr)
     {
-        InsercionRecursivaSort insercionRecursivaSort = new InsercionRecursivaSortImpl();
-        insercionRecursivaSort.InsercionRecursiva(arr);
+        SelectionSort selectionSort = new SelectionSortImpl();
+        selectionSort.selectionSort(arr);
     }
 
-    public static void shellSort(double[] arr){
-        ShellSort shellSort = new ShellSortImpl();
-        shellSort.ShellSort(arr);
+    public static void treeSort(double[] arr)
+    {
+        TreeSort treeSort = new TreeSortImpl();
+        treeSort.treeSort(arr);
+    }
+
+    public static void pigeonholeSort(double[] arr)
+    {
+        PigeonholeSort pigeonholeSort = new PigeonholeSortImpl();
+        pigeonholeSort.pigeonHoleSort(arr);
     }
 
     public static void bucketSort(double[] arr)
@@ -44,22 +42,10 @@ public class Ordenamiento {
         bucketSort.BucketSort(arr);
     }
 
-    public static void mergeSort(double[] arr)
-    {
-        MergeSort mergeSort = new MergeSortImpl();
-        mergeSort.MergeSort(arr);
-    }
-
     public static void quickSort(double[] arr)
     {
         QuickSort quickSort = new QuickSortImpl();
         quickSort.QuickSort(arr);
-    }
-
-    public static void stoogeSort(double[] arr)
-    {
-        StoogeSort stoogeSort = new StoogeSortImpl();
-        stoogeSort.StoogeSort(arr);
     }
 
     public static void heapSort(double[] arr)
@@ -83,11 +69,6 @@ public class Ordenamiento {
     public static void binaryInsertionSort(double[] arr) {
         BinaryInsertionSort binaryInsertionSort = new BinaryInsertionSortImpl();
         binaryInsertionSort.BinaryInsertionSort(arr);
-    }
-
-    public static void strandSort(double[] arr) {
-        StrandSort strandSort = new StrandSortImpl();
-        strandSort.strandSort(arr);
     }
 
     public static void radixSort(double[] arr) {
